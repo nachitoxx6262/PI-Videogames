@@ -1,4 +1,4 @@
-import { GET_VIDEOGAMES,SEARCH_GAMES,RESET, GET_BYID} from "./action";
+import { GET_VIDEOGAMES,SEARCH_GAMES,RESET, GET_BYID,RESET_BYID} from "./action";
 const initialState = {
   games: [],
   gamesFilter:[],
@@ -23,6 +23,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         gameById: action.payload,
       };
+      case RESET_BYID:
+        return{
+          ...state,
+          gameById: []
+        }
       case RESET:
         return {
           ...state,

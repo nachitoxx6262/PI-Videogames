@@ -17,6 +17,7 @@ const Home = () => {
   const data = useSelector((state) => state.gamesFilter);
 
   const handleChange = (event) => {
+    setCurrentPage(1)
     const value = event.target.value;
     if (value === "") {
       dispatch(reset());

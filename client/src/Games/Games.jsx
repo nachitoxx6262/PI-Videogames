@@ -6,10 +6,10 @@ import { useDispatch } from 'react-redux';
 import { getById } from "../Redux/action";
 const Games = ({ name, image, id }) => {
   var id = id
-  // const dispatch = useDispatch()
-  // const handleClick = ()=>{
-  //   dispatch(getById(id));
-  // }
+  const dispatch = useDispatch()
+  const handleClick = ()=>{
+    dispatch(getById(id));
+  }
   return (
  
     <div className={Style.container}>
@@ -17,7 +17,7 @@ const Games = ({ name, image, id }) => {
           <img className={Style.image} src={image} alt="not found" />
       
         <div>
-          <Link to={`/${id}`} style={{ textDecoration: "none" }}>
+          <Link to={`/${id}`} style={{ textDecoration: "none" }} onClick={handleClick}>
           <h3 className={Style.a}>{name}</h3>
           </Link>
           </div>

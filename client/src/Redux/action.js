@@ -3,6 +3,7 @@ export const GET_VIDEOGAMES = "GET_VIDEOGAMES";
 export const CREATE_VIDEOGAMES = "CREATE_VIDEOGAMES";
 export const SEARCH_GAMES = "SEARCH_GAMES";
 export const RESET = "RESET";
+export const RESET_BYID = "RESET_BYID";
 export const GET_BYID = "GET_BYID";
 
 export const getgames =  () => {
@@ -26,4 +27,7 @@ export const searchGames =  (name) => {
 };
 export const reset =  () => {
   return { type: RESET}
+};
+export const resetByID =  () => {
+  return { type: RESET_BYID}
 };
