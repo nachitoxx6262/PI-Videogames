@@ -1,0 +1,66 @@
+.Pagination {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  list-style: none;
+  color: white;
+}
+.a{
+    text-decoration: none;
+    color: white;
+}
+.li {
+
+  padding: 5px;
+}
+.Div{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+    margin-top: 30px ;
+    background-color: rgba(0, 0, 0, 0.543)
+}
+
+.btn {
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    color: #fff;
+    background: linear-gradient(90deg, #6600ff 0%, #c500cc 100%);
+    padding: 5px 15px;
+    border: 0px solid #c500cc;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+    border-radius: 50px;
+    transition: 1000ms;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+.btnactive{
+
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    color: #fff;
+    background: linear-gradient(90deg, #ff00e1 0%, #c500cc 100%);
+    padding: 5px 15px;
+    border: 0px solid #c500cc;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+    border-radius: 50px;
+    transition: 1000ms;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+.btn:hover {
+    transition: 1000ms;
+    padding: 5px 25px;
+    transform: translateY(-0px);
+    background-color: #fff;
+    color: #fff;
+    border: solid 0px #ffffff;
+  }

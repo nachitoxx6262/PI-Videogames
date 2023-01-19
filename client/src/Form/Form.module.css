@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap");
+.Body{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-image: url("../image/backneon.svg");
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.todo {
+  font-family: "Nunito", sans-serif;
+  width: 1000px;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: rgba(92, 8, 218, 0.88);
+  width: 80%;
+  height: 80%;
+  flex-wrap: wrap;
+justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  color: aqua;
+  box-shadow: 2px -1px 50px 4px #c500cc;
+}
+.btn {
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  color: #fff;
+  background: linear-gradient(90deg, #6600ff 0%, #c500cc 100%);
+  padding: 10px 30px;
+  border: 0px solid #c500cc;
+  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+  border-radius: 50px;
+  transition: 1000ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover {
+transition: 1000ms;
+padding: 10px 50px;
+transform: translateY(-0px);
+background-color: #fff;
+color: #fff;
+border: solid 0px #ffffff;
+}
+.a{
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+
+}
+.send{
+  margin-top: 30px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  color: #fff;
+  background: linear-gradient(90deg, #6600ff 0%, #c500cc 100%);
+  padding: 10px 30px;
+  border: 0px solid #c500cc;
+  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+  border-radius: 50px;
+  transition: 1000ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+.send:hover {
+  transition: 1000ms;
+  padding: 10px 50px;
+  transform: translateY(-0px);
+  background-color: #fff;
+  color: #fff;
+  border: solid 0px #ffffff;
+  }

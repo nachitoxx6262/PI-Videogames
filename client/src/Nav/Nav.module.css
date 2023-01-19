@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,500&display=swap");
+.contenedor {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+  width: 100%;
+  height: 90px;
+}
+.titlediv {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin-left: 10px;
+}
+.img{
+  width: 200px;
+  height: 100px;
+}
+.divbtn {
+  width: auto;
+  height: auto;
+  margin: 40px;
+}
+.btn {
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  color: #fff;
+  background: linear-gradient(90deg, #6600ff 0%, #c500cc 100%);
+  padding: 10px 30px;
+  border: 0px solid #c500cc;
+  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+  border-radius: 50px;
+  transition: 1000ms;
+  transform: translateY(0);
+  cursor: pointer;
+  margin: 10px;
+}
+.btn:hover {
+  transition: 1000ms;
+  padding: 10px 50px;
+  transform: translateY(-0px);
+  background-color: #fff;
+  color: #fff;
+  border: solid 0px #ffffff;
+}
+@media (max-width: 700px) {
+  .contenedor {
+    flex-direction: column;
+    height: auto;
+  }
+}

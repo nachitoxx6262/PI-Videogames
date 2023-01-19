@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap");
+.background{
+  min-height: 100vh;
+  background-image: url("../image/wall.svg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+}
+.btn {
+    font-family: "Open Sans", sans-serif;
+    font-size: 30px;
+    color: #fff;
+    background: linear-gradient(90deg, #6600ff 0%, #c500cc 100%);
+    padding: 10px 30px;
+    border: 0px solid #c500cc;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+    border-radius: 50px;
+    transition: 1000ms;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn:hover {
+  transition: 1000ms;
+  padding: 10px 50px;
+  transform: translateY(-0px);
+  background-color: #fff;
+  color: #fff;
+  border: solid 0px #ffffff;
+}
+.img{
+  width: 1000px;
+}

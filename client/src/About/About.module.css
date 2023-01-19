@@ -1,0 +1,9 @@
+.Body{
+    display: flex;
+    flex-direction: column;
+    background-image: url("../image/backneon.svg");
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }

@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("./wall.svg");
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.NeonText {
+  font-family: "Neonderthaw", cursive;
+  font-size: 4rem;
+  font-weight: 400;
+  color: #fff;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa,
+    0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
+}
+.Span{
+    color: rgb(234, 6, 234);
+    text-shadow: 0 0 7px purple, 0 0 10px purple, 0 0 21px purple, 0 0 42px rgb(255, 0, 238),
+    0 0 82px rgb(255, 0, 238), 0 0 92px rgb(255, 0, 238), 0 0 102px rgb(255, 0, 238), 0 0 151px rgb(255, 0, 238);
+}
+.P{
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+    color: rgb(234, 6, 234);
+    text-shadow: 0 0 7px purple, 0 0 10px purple, 0 0 21px purple, 0 0 42px rgb(255, 0, 238),
+    0 0 82px rgb(255, 0, 238), 0 0 92px rgb(255, 0, 238), 0 0 102px rgb(255, 0, 238), 0 0 151px rgb(255, 0, 238);
+}
