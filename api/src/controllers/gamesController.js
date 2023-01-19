@@ -97,6 +97,7 @@ const getVideogamesById = async (id) => {
          let genres = game.genres.map((genre) => genre.name);
          return {
             name: game.name,
+            description_raw: game.description_raw,
             description: game.description,
             released: game.released,
             image: game.background_image,

@@ -1,0 +1,33 @@
+.Body {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  flex-direction: column;
+  background-image: url("../image/wall.svg");
+}
+.Detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.img{
+    width: 800px;
+    height: 400px;
+}
+.btn{
+    text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  color: #fff;
+  background: linear-gradient(90deg, #6600ff 0%, #c500cc 100%);
+  padding: 10px 30px;
+  border: 0px solid #c500cc;
+  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+  border-radius: 50px;
+  transition: 1000ms;
+  transform: translateY(0);
+  cursor: pointer;
+  margin: 10px;
+}

@@ -2,7 +2,14 @@ import React from "react";
 import Style from "./Games.module.css";
 import {Link} from "react-router-dom"
 import { useState } from "react";
-const Games = ({ name, released, rating, platform, image, id }) => {
+import { useDispatch } from 'react-redux';
+import { getById } from "../Redux/action";
+const Games = ({ name, image, id }) => {
+  var id = id
+  // const dispatch = useDispatch()
+  // const handleClick = ()=>{
+  //   dispatch(getById(id));
+  // }
   return (
  
     <div className={Style.container}>
@@ -10,7 +17,7 @@ const Games = ({ name, released, rating, platform, image, id }) => {
           <img className={Style.image} src={image} alt="not found" />
       
         <div>
-          <Link to={{id}} style={{ textDecoration: "none" }}>
+          <Link to={`/${id}`} style={{ textDecoration: "none" }}>
           <h3 className={Style.a}>{name}</h3>
           </Link>
           </div>
