@@ -1,4 +1,4 @@
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FILTER, RESETs } from "../Redux/action";
 export const Filter = () => {
   const dispatch = useDispatch();
@@ -9,25 +9,6 @@ export const Filter = () => {
   };
   return (
     <>
-      <section>
-        <label style={{ color: "white" }} htmlFor="genre">
-          Genre filter{" "}
-        </label>
-        <select onChange={handlerFilter}>
-          <option disabled value="none">
-            Select
-          </option>
-          {genres.length > 0
-            ? genres.map((element, index) => {
-                return (
-                  <option key={index} value={element.genre}>
-                    {element.genre}
-                  </option>
-                );
-              })
-            : "Loading"}
-        </select>
-      </section>
       <section>
         <label style={{ color: "white" }} htmlFor="type">
           VideoGame type filter{" "}
@@ -40,6 +21,25 @@ export const Filter = () => {
           <option value="ADD">Added</option>
           <option value="EXI">Existing</option>
         </select>
+      </section>
+      <section>
+        <label style={{ color: "white" }} htmlFor="genre">
+          Genre filter{" "}
+        </label>
+        {genres.length > 0
+          ? genres.map((element) => {
+              return (
+                <>
+                  <input
+                    type="checkbox"
+                    key={element.id}
+                    value={element.genre}
+                  ></input>
+                  <label style={{"color":"white"}}>{element.genre}</label>
+                </>
+              );
+            })
+          : "Loading"}
       </section>
     </>
   );
