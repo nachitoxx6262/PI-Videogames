@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import { getgames } from "../Redux/action";
+import { getgames, getGenre } from "../Redux/action";
 import Style from "./Landing.module.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +9,7 @@ const Landing = () => {
   const dispatch = useDispatch()
   useEffect(()=>{
     dispatch(getgames())
+    dispatch(getGenre())
   },[])
   return (
     <div className={Style.background}>

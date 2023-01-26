@@ -3,6 +3,17 @@ const {getVideogames,createVideogames,getVideogamesById} = require("../controlle
 const games = Router()
 
 // #################🚨 GET 🚨    ####################
+// get by
+games.get("/", async(req,res)=>{
+    let {name} = req.query
+try{
+    let games = await getVideogames(name)
+    res.json(games)
+}catch(err){
+    res.status(404).json({APIerror: err.message})
+}
+  
+}),
 games.get("/:id", async(req,res)=>{
     const {id} = req.params
     try{
@@ -15,16 +26,6 @@ games.get("/:id", async(req,res)=>{
 }),
     
 
-games.get("/", async(req,res)=>{
-    let {name} = req.query
-try{
-    let games = await getVideogames(name)
-    res.json(games)
-}catch(err){
-    res.status(404).json({message: err.message})
-}
-  
-}),
 
 
 // #################🚨 POST 🚨    ####################

@@ -41,7 +41,8 @@ const GameDetail = () => {
 
   let data = useSelector((state) => state.gameById);
   const handleClick=(event)=>{
-   dispatch(resetByID())
+    dispatch(resetByID())
+   
   }
   useEffect(() => {
     if (data.length == 0) {

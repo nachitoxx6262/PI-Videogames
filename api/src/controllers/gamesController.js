@@ -1,7 +1,7 @@
 const { Videogame, GamesGenre, Genre } = require("../db.js");
 const axios = require("axios");
 const { KEY } = process.env;
-const { Op } = require("sequelize");
+const { Op, DataTypes } = require("sequelize");
 const url = `https://api.rawg.io/api/games?key=${KEY}`
 // FILTRO PARA TRAER LAS PROPIEDADES NECESARIAS 
 const filtroData = (result) => {
@@ -71,7 +71,6 @@ const getVideogames = async (name) => {
     });
     let cleanGames = dbname.concat(apigames);
     if (cleanGames.length == 0) {
-      console.log("error");
       throw new Error("Name not found");
     } else return cleanGames;
   } else {
@@ -118,7 +117,14 @@ const getVideogamesById = async (id) => {
     }
   } else {
     try {
-      let result = await Videogame.findByPk(id);
+      let result = await Videogame.findAll({
+        where:{id:id},
+        include:{
+          model: Genre,
+          attributes: ["genre"],
+          trough:{attributes:[""]}
+        }
+      });
       if (result) return result;
       else {
         {

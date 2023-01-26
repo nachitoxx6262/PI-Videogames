@@ -1,8 +1,19 @@
-import { GET_VIDEOGAMES,SEARCH_GAMES,RESET, GET_BYID,RESET_BYID} from "./action";
+import {orderGames} from "./Function"
+import {
+  GET_VIDEOGAMES,
+  SEARCH_GAMES,
+  RESET,
+  GET_BYID,
+  RESET_BYID,
+  GET_GENRE,
+  ORDER,
+  FILTER
+} from "./action";
 const initialState = {
   games: [],
-  gamesFilter:[],
-  gameById:[]
+  gamesFilter: [],
+  gameById: [],
+  genres: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -13,26 +24,49 @@ const rootReducer = (state = initialState, action) => {
         games: action.payload,
         gamesFilter: action.payload,
       };
-      case SEARCH_GAMES:
+    case SEARCH_GAMES:
       return {
         ...state,
-        gamesFilter: state.games.filter((game)=>game.name.toUpperCase().includes(action.payload.toUpperCase()) || game.id == action.payload),
+        gamesFilter: state.games.filter(
+          (game) =>
+            game.name.toUpperCase().includes(action.payload.toUpperCase()) ||
+            game.id == action.payload
+        ),
       };
-      case GET_BYID:
+    case GET_BYID:
       return {
         ...state,
         gameById: action.payload,
       };
-      case RESET_BYID:
-        return{
-          ...state,
-          gameById: []
-        }
-      case RESET:
-        return {
-          ...state,
-          gamesFilter: state.games,
-        };
+    case RESET_BYID:
+      return {
+        ...state,
+        gameById: [],
+      };
+    case RESET:
+      return {
+        ...state,
+        gamesFilter: state.games,
+      };
+    case GET_GENRE:
+      return {
+        ...state,
+        genres: action.payload,
+      };
+    case ORDER:
+      let payload = action.payload
+      let result = orderGames(payload, state)
+      return {
+        ...state,
+        gamesFilter : result,
+      };
+      case FILTER:
+      let payloads = action.payload
+      let results = orderGames(payload, state)
+      return {
+        ...state,
+        gamesFilter : results,
+      };
     default:
       return {
         ...state,

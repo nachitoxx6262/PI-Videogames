@@ -8,19 +8,19 @@ import { getgames } from "../Redux/action";
 import Loading from "../Loading/Loading";
 import Pagination from "../Pagination/Pagination";
 import logo from "../image/logo.svg";
-import { reset, searchGames } from "../Redux/action";
+import { RESETs, searchGames } from "../Redux/action";
+import FilterBar from "../FilterBar/FilterBar";
 const Home = () => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(15);
   const data = useSelector((state) => state.gamesFilter);
-
   const handleChange = (event) => {
     setCurrentPage(1)
     const value = event.target.value;
     if (value === "") {
-      dispatch(reset());
+      dispatch(RESETs());
     } else {
       dispatch(searchGames(value));
     }
@@ -70,8 +70,12 @@ const Home = () => {
             </Link>
           </div>
         </div>
+        <div style={{"background-color": "black"}}>
+        <FilterBar/>
+        </div>
 
         <div className={Style.render}>
+          
           {isLoading ? (
             <Loading />
           ) : (
