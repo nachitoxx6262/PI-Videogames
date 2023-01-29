@@ -6,9 +6,28 @@ export const orderGames = (payload, state) => {
     });
 }
 export const filterGames = (payload,state)=>{
-    if(payload === "ADD"){
-        return state.games.filter(game => game.image== "https://media.kasperskydaily.com/wp-content/uploads/sites/92/2020/02/17105257/game-ratings-featured.jpg")
-    }else if (payload === "EXI"){
-        return state.games.filter(game => game.image != "https://media.kasperskydaily.com/wp-content/uploads/sites/92/2020/02/17105257/game-ratings-featured.jpg")
-    }else return state.games
+    if(payload === "ADD"||payload === "EXI"||payload === "ALL"){
+        if(payload === "ADD") return state.games.filter(game => game.image== "https://media.kasperskydaily.com/wp-content/uploads/sites/92/2020/02/17105257/game-ratings-featured.jpg")
+        else if (payload === "EXI") return state.games.filter(game => game.image != "https://media.kasperskydaily.com/wp-content/uploads/sites/92/2020/02/17105257/game-ratings-featured.jpg")
+        else return state.games
+    }else{
+        console.log("filtro")
+        console.log(payload)
+        let b = state.gamesFilter
+        let a =  b.filter((game)=> game.genres.includes(payload))
+
+        return a
+    }
+}
+
+
+export const filtro =(payload)=>{
+    let id = payload.id
+    let array = []
+    if(id?.length>5){
+         payload.Genres?.map(element=>array.push(element.genre))
+         console.log(array)
+         payload.genres = array
+    }
+    return payload
 }

@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { getById } from "../Redux/action";
-const Games = ({ name, image, id }) => {
+const Games = ({ name, image, id,genre }) => {
   var id = id
   const dispatch = useDispatch()
   const handleClick = ()=>{
@@ -20,6 +20,8 @@ const Games = ({ name, image, id }) => {
           <Link to={`/${id}`} style={{ textDecoration: "none" }} onClick={handleClick}>
           <h3 className={Style.a}>{name}</h3>
           </Link>
+          <p>{genre?.map((element)=> element+".." )}</p>
+          
           </div>
     </div>
 

@@ -19,7 +19,7 @@
   margin-top: 50px;
   gap: 40px;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content:center;
   align-items: center;
 }
 
@@ -46,6 +46,7 @@
 }
 .searchdiv {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   height: 50px;
   width: 200px;
@@ -108,4 +109,10 @@
   align-items: flex-end;
   justify-content: center;
   width: 100%;
+}
+.bar {
+  width: 100%;
+ display: flex;
+ flex-direction: row;
+justify-content: center;
 }

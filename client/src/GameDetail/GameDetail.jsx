@@ -15,14 +15,15 @@ const Detail = ({
   released,
   platform,
   genres,
-  id,
+  id
 }) => {
+  console.log(genres, "details")
   return (
     <>
       <div className={Style.Detail}>
         <img className={Style.img} src={image} />
         <h1>{name}</h1>
-        <>{description_raw ? description_raw : description}</>
+        <div  className={Style.Description}>{description_raw ? description_raw : description}</div>
         <p>{`Released: ${released}`}</p>
         <div>
           <p>{`Platform: ${platform}`}</p>
@@ -40,6 +41,7 @@ const GameDetail = () => {
   var { id } = useParams();
 
   let data = useSelector((state) => state.gameById);
+
   const handleClick=(event)=>{
     dispatch(resetByID())
    
@@ -65,7 +67,7 @@ const GameDetail = () => {
           released={data.released}
           platform={data.platform}
           genres={data.genres}
-          id={data.id}
+          id={data.id}         
         />
       )}
       <div className={Style.DivBtn}>

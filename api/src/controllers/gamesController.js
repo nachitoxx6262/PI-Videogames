@@ -44,8 +44,10 @@ const getAllgames = async () => {
         attributes:["genre"],
         through: {
           attributes:[]}}});
+///////////////////////////////////////////////////////////////////////////////////////////
+/// APLICAR FILTRO EN GAMESDB  AL FILTRO DEL FUNCTION DE REDUX ////////////////////////////
+let gamesfilter
     let cleanGames = gamesbd.concat(apigames);
-    console.log(cleanGames.length);
     return cleanGames;
   } catch (err) {
     throw new Error("API error");
@@ -125,7 +127,7 @@ const getVideogamesById = async (id) => {
           trough:{attributes:[""]}
         }
       });
-      if (result) return result;
+      if (result) return result[0];
       else {
         {
           throw new Error("Id not found");

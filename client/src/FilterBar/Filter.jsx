@@ -1,46 +1,46 @@
+import Style from "./FilterBar.module.css"
 import { useDispatch, useSelector } from "react-redux";
 import { FILTER, RESETs } from "../Redux/action";
 export const Filter = () => {
   const dispatch = useDispatch();
   const genres = useSelector((state) => state.genres);
   const handlerFilter = (e) => {
-    dispatch(RESETs());
     dispatch({ type: FILTER, payload: e.target.value });
   };
   return (
-    <>
+    <div>
       <section>
         <label style={{ color: "white" }} htmlFor="type">
           VideoGame type filter{" "}
         </label>
-        <select onChange={handlerFilter}>
-          <option disabled value="none">
+        <select  className={Style.Select} onChange={handlerFilter}>
+          <option className={Style.option} disabled value="none">
             Select
           </option>
-          <option value="ALL">All</option>
-          <option value="ADD">Added</option>
-          <option value="EXI">Existing</option>
+          <option className={Style.option} value="ALL">All</option>
+          <option className={Style.option} value="ADD">Added</option>
+          <option className={Style.option} value="EXI">Existing</option>
         </select>
       </section>
+
       <section>
         <label style={{ color: "white" }} htmlFor="genre">
           Genre filter{" "}
         </label>
+        <label style={{ color: "white" }} >Genre{" "}</label>
+        <select className={Style.Select} onChange={handlerFilter}>
+        <option className={Style.option} value="ALL">All</option>
         {genres.length > 0
           ? genres.map((element) => {
               return (
                 <>
-                  <input
-                    type="checkbox"
-                    key={element.id}
-                    value={element.genre}
-                  ></input>
-                  <label style={{"color":"white"}}>{element.genre}</label>
+          <option className={Style.option} value={element.genre}>{element.genre}</option>
                 </>
               );
             })
           : "Loading"}
+          </select>
       </section>
-    </>
+    </div>
   );
 };

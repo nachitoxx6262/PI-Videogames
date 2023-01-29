@@ -1,5 +1,6 @@
+import Style from "./FilterBar.module.css";
 import { ORDER, RESETs } from "../Redux/action";
-const { useSelector, useDispatch } = require("react-redux");
+const { useDispatch } = require("react-redux");
 export const Order = () => {
   const dispatch = useDispatch();
   const handlerFilter = (e) => {
@@ -10,19 +11,27 @@ export const Order = () => {
   return (
     <div>
       <section>
-        <label style={{ color: "white" }} htmlFor="alph">Alphabetical order{" "}</label>
-        <select onChange={handlerFilter}>
-          <option disabled value="none">Select</option>
-          <option value="ASC">'A to Z'</option>
-          <option value="DESC">'Z to A'</option>
+        <label style={{ color: "white" }} htmlFor="alph">
+          Alphabetical order{" "}
+        </label>
+        <select className={Style.Select} onChange={handlerFilter}>
+          <option className={Style.option} disabled value="none">
+            Select
+          </option>
+          <option className={Style.option} value="ASC">'A to Z'</option>
+          <option className={Style.option} value="DESC">'Z to A'</option>
         </select>
       </section>
       <section>
-        <label style={{ color: "white" }} htmlFor="rating">Rating order{" "}</label>
-        <select onChange={handlerFilter}>
-          <option disabled value="none">Select</option>
-          <option value="MAY">High to low</option>
-          <option value="MEN">Low to high</option>
+        <label style={{ color: "white" }} htmlFor="rating">
+          Rating order{" "}
+        </label>
+        <select className={Style.Select} onChange={handlerFilter}>
+          <option className={Style.option} disabled value="none">
+            Select
+          </option>
+          <option className={Style.option} value="MAY">High to low</option>
+          <option className={Style.option} value="MEN">Low to high</option>
         </select>
       </section>
     </div>

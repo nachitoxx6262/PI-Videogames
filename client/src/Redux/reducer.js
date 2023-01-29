@@ -1,4 +1,4 @@
-import {orderGames,filterGames} from "./Function"
+import {orderGames,filterGames,filtro} from "./Function"
 import {
   GET_VIDEOGAMES,
   SEARCH_GAMES,
@@ -34,9 +34,10 @@ const rootReducer = (state = initialState, action) => {
         ),
       };
     case GET_BYID:
+      let resultado = filtro(action.payload)
       return {
         ...state,
-        gameById: action.payload,
+        gameById: resultado,
       };
     case RESET_BYID:
       return {

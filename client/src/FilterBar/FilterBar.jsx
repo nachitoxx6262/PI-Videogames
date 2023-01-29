@@ -4,10 +4,9 @@ import Style from "./FilterBar.module.css"
 const FilterBar = () => {
   return (
     <>
-      <div className={Style.bar}>
         <Order/>
         <Filter/>
-      </div>
+ 
     </>
   );
 };

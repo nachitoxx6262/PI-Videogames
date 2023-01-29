@@ -12,7 +12,6 @@ const Form = () => {
     description,
     released,
     rating,
-    genre,
     platform,
   }) => {
     try {
@@ -21,8 +20,8 @@ const Form = () => {
         description: `${description}`,
         released: `${released}`,
         rating: `${rating}`,
-        genre: `${genre}`,
-        platform: `${platform}`,
+        genre: array,
+        platform: plataformas,
       };
       console.log(data);
       let response = await axios({
@@ -38,13 +37,13 @@ const Form = () => {
   };
   const genres = useSelector((state) => state.genres);
   const [Checked, setChecked] = useState(new Array(genres.lenght).fill(false));
+  var array = []
+  var plataformas = ""
   const [form, setForm] = useState({
     name: "",
     description: "",
     released: "",
     rating: "",
-    genre: [],
-    platform: "",
   });
   const handleChange = (event) => {
     console.log("cambie")
@@ -55,9 +54,21 @@ const Form = () => {
       [property]: value,
     });
   };
+  const handleChangeGere = (event)=>{
+    const value = event.target.id;
+    array.push(Number(value))
+  }
+  const handleChangePlatform = (event)=>{
+    const value = event.target.value;
+    plataformas = plataformas +value+","
+  }
   const handleSubmit = (event) => {
+    console.log(array)
     event.preventDefault();
+    console.log(form,"i")
     createGame(form);
+    array = []
+    plataformas = ""
   };
   return (
     <>
@@ -118,6 +129,30 @@ const Form = () => {
             </div>
             <div className={Style.Platform}>
               <h1>Platform</h1>
+              <label>
+                      <input type="checkbox" name="PC" value={"PC"}  onChange={handleChangePlatform}
+                       />
+                      PC </label>
+                      <label>
+                      <input type="checkbox" name="Play Station" value={"Play Station"} onChange={handleChangePlatform}
+                       />
+                      Play Station </label>
+                      <label>
+                      <input type="checkbox" name="Xbox"  value={"Xbox"}  onChange={handleChangePlatform}
+                       />
+                      Xbox </label>
+                      <label>
+                      <input type="checkbox" name="Nintendo"  value={"Nintendo"}  onChange={handleChangePlatform}
+                       />
+                      Nintendo </label>
+                      <label>
+                      <input type="checkbox" name="Android"  value={"Android"}  onChange={handleChangePlatform}
+                       />
+                      Android </label>
+                      <label>
+                      <input type="checkbox" name="IOS"  value={"IOS"}  onChange={handleChangePlatform}
+                       />
+                      IOS </label>
             </div>
             <div className={Style.Platform}>
               <h1>Genre</h1>
@@ -131,7 +166,7 @@ const Form = () => {
                         value={element.genre}
                         id={element.id}
                         checked={Checked[element.id-1]}
-                        onChange={handleChange}
+                        onChange={handleChangeGere}
                       />
                       {element.genre}
                     </label>
