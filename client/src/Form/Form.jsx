@@ -35,6 +35,7 @@ const Form = () => {
       console.log(e);
     }
   };
+  const [ok, setOk] = useState(false)
   const genres = useSelector((state) => state.genres);
   const [Checked, setChecked] = useState(new Array(genres.lenght).fill(false));
   var array = []
@@ -63,18 +64,25 @@ const Form = () => {
     plataformas = plataformas +value+","
   }
   const handleSubmit = (event) => {
-    console.log(array)
     event.preventDefault();
     console.log(form,"i")
     createGame(form);
     array = []
     plataformas = ""
+    setForm({name: "",
+    description: "",
+    released: "",
+    rating: "",})
+    setOk(true)
+    setTimeout(function(){
+      setOk(false)
+    },2000)
   };
   return (
     <>
       <Nav />
       <div className={Style.Body}>
-        <div className={Style.todo}>
+        {ok == true ? <div className={Style.todok}></div>:<div className={Style.todo}>
           <form onSubmit={handleSubmit} className={Style.form}>
             <div className={Style.TitleDiv}>
               <h1>Create your custom Game</h1>
@@ -129,6 +137,8 @@ const Form = () => {
             </div>
             <div className={Style.Platform}>
               <h1>Platform</h1>
+              <div className={Style.Platformcontent}>
+
               <label>
                       <input type="checkbox" name="PC" value={"PC"}  onChange={handleChangePlatform}
                        />
@@ -153,10 +163,11 @@ const Form = () => {
                       <input type="checkbox" name="IOS"  value={"IOS"}  onChange={handleChangePlatform}
                        />
                       IOS </label>
+                </div>
             </div>
             <div className={Style.Platform}>
               <h1>Genre</h1>
-              <div className={Style.Platform}>
+              <div className={Style.Platformcontent}>
                 {genres?.map((element) => {
                   return (
                     <label>
@@ -180,7 +191,8 @@ const Form = () => {
               </button>
             </div>
           </form>
-        </div>
+        </div> }
+        
       </div>
     </>
   );

@@ -34,7 +34,6 @@ const Home = () => {
   }, [dispatch]);
 
   const totalPages = Math.ceil(data.length / itemsPerPage);
-
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
