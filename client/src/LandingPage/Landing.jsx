@@ -8,8 +8,6 @@ import logo from "../image/logo.svg";
 const Landing = () => {
   const dispatch = useDispatch()
   useEffect(()=>{
-    dispatch(getgames())
-    dispatch(getGenre())
   },[])
   return (
     <div className={Style.background}>

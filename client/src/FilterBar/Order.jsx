@@ -4,7 +4,6 @@ const { useDispatch } = require("react-redux");
 export const Order = () => {
   const dispatch = useDispatch();
   const handlerFilter = (e) => {
-    console.log("pase");
     dispatch(RESETs());
     dispatch({ type: ORDER, payload: e.target.value });
   };

@@ -17,7 +17,6 @@ const Detail = ({
   genres,
   id
 }) => {
-  console.log(genres, "details")
   return (
     <>
       <div className={Style.Detail}>

@@ -55,7 +55,6 @@ const getAllgames = async () => {
     });
     let apigames = filtroData(result);
     let gamesDatabase = await DBgames()
-    console.log(gamesDatabase)
     let cleanGames = gamesDatabase.concat(apigames);
     return cleanGames;
   } catch (err) {
@@ -86,7 +85,7 @@ const getVideogames = async (name) => {
     } else return cleanGames;
   } else {
     let games = await getAllgames();
-    console.log(games[0])
+
     return games;
   }
 };

@@ -23,7 +23,7 @@ const Form = () => {
         genre: array,
         platform: plataformas,
       };
-      console.log(data);
+
       let response = await axios({
         url: "http://localhost:3001/videogames",
         method: "POST",
@@ -32,7 +32,6 @@ const Form = () => {
       dispatch(getgames());
       return response;
     } catch (e) {
-      console.log(e);
     }
   };
   const [ok, setOk] = useState(false)
@@ -47,7 +46,6 @@ const Form = () => {
     rating: "",
   });
   const handleChange = (event) => {
-    console.log("cambie")
     const property = event.target.name;
     const value = event.target.value;
     setForm({
@@ -65,7 +63,6 @@ const Form = () => {
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(form,"i")
     createGame(form);
     array = []
     plataformas = ""
