@@ -3,6 +3,23 @@ const axios = require("axios");
 const { KEY } = process.env;
 const { Op, DataTypes } = require("sequelize");
 const url = `https://api.rawg.io/api/games?key=${KEY}`
+const DBgames = async()=>{
+  let gamesbd = await Videogame.findAll({
+    attributes:["id", "name", "description", "released", "rating", "platform","image"],
+    include:{
+      model:Genre,
+      attributes:["genre"],
+      through: {
+        attributes:[]}}});
+    gamesbd?.map((elements) =>{ 
+        let array = []
+      elements.Genres?.map(element=>array.push(element.genre))
+      elements.dataValues.genres = array
+      elements.dataValues.Genres = ""
+    })
+return gamesbd
+}
+
 // FILTRO PARA TRAER LAS PROPIEDADES NECESARIAS 
 const filtroData = (result) => {
   let apigames = result.map((game) => {
@@ -37,17 +54,9 @@ const getAllgames = async () => {
         .concat(values[4].data.results);
     });
     let apigames = filtroData(result);
-    let gamesbd = await Videogame.findAll({
-      attributes:["id", "name", "description", "released", "rating", "platform","image"],
-      include:{
-        model:Genre,
-        attributes:["genre"],
-        through: {
-          attributes:[]}}});
-///////////////////////////////////////////////////////////////////////////////////////////
-/// APLICAR FILTRO EN GAMESDB  AL FILTRO DEL FUNCTION DE REDUX ////////////////////////////
-let gamesfilter
-    let cleanGames = gamesbd.concat(apigames);
+    let gamesDatabase = await DBgames()
+    console.log(gamesDatabase)
+    let cleanGames = gamesDatabase.concat(apigames);
     return cleanGames;
   } catch (err) {
     throw new Error("API error");
@@ -76,7 +85,8 @@ const getVideogames = async (name) => {
       throw new Error("Name not found");
     } else return cleanGames;
   } else {
-    let games = getAllgames();
+    let games = await getAllgames();
+    console.log(games[0])
     return games;
   }
 };
