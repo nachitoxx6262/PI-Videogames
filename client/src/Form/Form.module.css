@@ -61,6 +61,7 @@
   align-items: center;
   cursor: pointer;
   text-decoration: none;
+  width: 150px;
 }
 
 .btn:hover {
@@ -74,8 +75,8 @@ border: solid 0px #ffffff;
 .a{
   margin-top: 10px;
   display: flex;
-  justify-content: flex-start;
-  flex-direction: row;
+
+  flex-direction: column;
   gap: 5px;
   align-items: center;
 
