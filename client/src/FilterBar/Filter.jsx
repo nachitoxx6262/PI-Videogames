@@ -7,6 +7,9 @@ export const Filter = () => {
   const handlerFilter = (e) => {
     dispatch({ type: FILTER, payload: e.target.value });
   };
+  const reset =()=>{
+    dispatch({ type: RESETs });
+  }
   return (
     <div>
       <section>
@@ -40,6 +43,9 @@ export const Filter = () => {
             })
           : "Loading"}
           </select>
+      </section>
+      <section>
+        <button className={Style.Select} onClick={reset}>Reset Filter</button>
       </section>
     </div>
   );

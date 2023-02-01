@@ -27,7 +27,7 @@ const rootReducer = (state = initialState, action) => {
     case SEARCH_GAMES:
       return {
         ...state,
-        gamesFilter: state.games.filter(
+        gamesFilter: state.gamesFilter.filter(
           (game) =>
             game.name.toUpperCase().includes(action.payload.toUpperCase()) ||
             game.id == action.payload
